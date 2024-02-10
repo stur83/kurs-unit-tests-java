@@ -7,7 +7,7 @@ public class Coordinates {
     private int x;
     private int y;
 
-    Coordinates(int x, int y) {
+    public Coordinates(int x, int y) {
 
         if (x < 0 || y < 0) {
             throw new IllegalArgumentException("Position can not be less than 0");
@@ -21,7 +21,7 @@ public class Coordinates {
         this.y = y;
     }
 
-    static Coordinates copy(Coordinates coordinates, int x, int y) {
+    public static Coordinates copy(Coordinates coordinates, int x, int y) {
         return new Coordinates(coordinates.x + x, coordinates.y + y);
     }
 
@@ -39,11 +39,11 @@ public class Coordinates {
         return Objects.hash(x, y);
     }
 
-    int getX() {
+    public int getX() {
         return x;
     }
 
-    int getY() {
+    public int getY() {
         return y;
     }
 }

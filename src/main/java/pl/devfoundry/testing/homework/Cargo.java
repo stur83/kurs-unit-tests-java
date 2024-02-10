@@ -6,7 +6,7 @@ public class Cargo {
     private String name;
     private int weight;
 
-    Cargo(String name, int weight) {
+    public Cargo(String name, int weight) {
         this.name = name;
         this.weight = weight;
     }
@@ -26,7 +26,7 @@ public class Cargo {
     }
 
 
-    int getWeight() {
+    public int getWeight() {
         return weight;
     }
 }

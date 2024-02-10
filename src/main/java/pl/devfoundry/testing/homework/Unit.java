@@ -15,7 +15,7 @@ public class Unit {
     private int maxCargoWeight;
     private int currentCargoWeight;
 
-    Unit(Coordinates startCoordinates, int maxFuel, int maxCargoWeight) {
+    public Unit(Coordinates startCoordinates, int maxFuel, int maxCargoWeight) {
 
         this.coordinates = startCoordinates;
         this.maxFuel = maxFuel;
@@ -26,7 +26,7 @@ public class Unit {
 
     }
 
-    Coordinates move(int x, int y) {
+    public Coordinates move(int x, int y) {
 
         if (this.fuel - (x + y) < 0) {
             throw new IllegalStateException("Unit cannot move that far");
@@ -40,7 +40,7 @@ public class Unit {
         return coordinatesAfterMove;
     }
 
-    void tankUp() {
+    public void tankUp() {
 
         int restPoints = random.nextInt(10);
 
@@ -52,7 +52,7 @@ public class Unit {
 
     }
 
-    void loadCargo(Cargo cargo) {
+    public void loadCargo(Cargo cargo) {
 
         if (currentCargoWeight + cargo.getWeight() > maxCargoWeight) {
             throw new IllegalStateException("Can not load any more cargo");
@@ -64,26 +64,26 @@ public class Unit {
 
     }
 
-    void unloadCargo(Cargo cargo) {
+    public void unloadCargo(Cargo cargo) {
         this.cargo.remove(cargo);
         this.currentCargoWeight = calculateCargoWeight();
     }
 
-    void unloadAllCargo() {
+    public void unloadAllCargo() {
         cargo.clear();
         this.currentCargoWeight = 0;
     }
 
 
-    private int calculateCargoWeight() {
+    public int calculateCargoWeight() {
         return cargo.stream().mapToInt(Cargo::getWeight).sum();
     }
 
-    int getFuel() {
+    public int getFuel() {
         return this.fuel;
     }
 
-    int getLoad() {
+    public int getLoad() {
         return this.currentCargoWeight;
     }
 }
